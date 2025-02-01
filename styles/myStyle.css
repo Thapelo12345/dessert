@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=DM+Serif+Text:ital@0;1&family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
+
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    background-color: hsl(20, 50%, 98%);
+    overflow-x: hidden;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    padding: 2%;
+    width: 96.4vw;
+}
+
+#main-and-header {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    padding: 0;
+}
+
+#main-and-header h1 {
+    margin-top: 0;
+    margin-left: 3%;
+    font-family: "Nunito Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100,
+      "YTLC" 500;
+
+}
+
+#item-cart {
+    background-color: white;
+    border-radius: 10px;
+    width: 23vw;
+    min-width: 280px;
+    padding: 2%;
+    height: max-content;
+}
+
+#item-cart h1 {
+    font-size: 1.6rem;
+    margin-top: 0;
+    color: #C73B0F;
+    font-family: "Nunito Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100,
+      "YTLC" 500;
+}
+
+#item-cart svg {
+    margin: auto;
+    align-self: center;
+    display: block;
+}
+
+#item-cart p {
+    align-self: center;
+    justify-self: center;
+    width: auto;
+}
+
+#item-display {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 70vw;
+    height: auto;
+}
+
+.item-container {
+    border: 1px solid rgb(253, 245, 246);
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    min-width: 280px;
+    max-height: 340px;
+    margin: .5%;
+    border-radius: 10px;
+    background: none;
+    overflow: hidden;
+}
+
+.btn-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 69%;
+    margin: 0;
+    border-radius: inherit;
+}
+.item-pic {
+    width: 100%;
+    height: 90%;
+    border-radius: inherit;
+}
+
+.svg-holder {
+    width: 30%;
+    height: 60%;
+}
+
+.svg-holder svg{
+    width: 100%;
+    height: 100%;
+}
+
+.click-section {
+    /* border: 1px solid saddlebrown; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background: none;
+    width: 48%;
+    height: 14%;
+    margin-top: -7%;
+    border-radius: 20px;
+}
+
+.cart-btn {
+    border: .1px solid gray;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background:  hsl(20, 50%, 98%);
+    font-size: clamp(.6rem, .65rem, .70rem);
+    font-family: "Nunito Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100,
+      "YTLC" 500;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: inherit;
+    z-index: 1;
+}
+
+.cart-btn:hover {
+    border: 1px solid  #C73B0F;
+    color: #C73B0F;
+}
+
+.cart-btn span {
+    font-size: clamp(.75rem, 1vw, .85rem);
+}
+
+.item-category {
+    margin: 1.2%;
+    color: gray;
+    font-family: "Nunito Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100,
+      "YTLC" 500;
+}
+
+.add-subract {
+    width: 2vw;
+    min-width: 25px;
+    height: 2vw;
+    min-height: 23px;
+    border: 1px solid white;
+    color: white;
+    border-radius: 50%;
+    background: none;
+}
+
+.add-subract:hover {
+    color: hsl(14, 86%, 42%);
+    background-color: white;
+}
+
+.item-name {
+    margin: 0;
+    font-family: "Nunito Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100,
+      "YTLC" 500;
+    
+}
+
+.item-price {
+    color: #C73B0F;
+    margin: 0;
+    font-family: "Red Hat Text", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.count-value {
+    color: white;
+}
