@@ -29,124 +29,22 @@ $(document).ready(() => {
         let cartBtn = $("<button></button>");
         cartBtn.addClass("cart-btn");
         cartBtn.attr("value", item.name);
-        cartBtn.append(svgHolder);
-        // cartBtn.text('Add to Cart')
 
         let btnText = $("<span>Add to cart</span>");
         cartBtn.append(svgHolder, btnText);
 
-        if (window.matchMedia("(max-width: 480px)").matches) {
+        if (window.matchMedia("(max-width: 480px)").matches) { 
           pic.attr("src", item.image.mobile);
         } else if (window.matchMedia("(max-width: 1280px)").matches) {
           pic.attr("src", item.image.tablet);
         } else {
           pic.attr("src", item.image.desktop);
         }
-
         //appending pic and btn
 
         //setting up cart button function
         cartBtn.click(function () {
-          let crrValue = $(this).attr("value");
-
-          //get the current i am working with
-          let currentItem = $(".item-container").filter(function () {
-            return $(this).attr("id") === crrValue;
-          });
-
-          let clickArray = $(
-            ".item-container .btn-image .click-section"
-          ).toArray();
-
-          //reseting click section to asingle btn
-          for (let i = 0; i < clickArray.length; i++) {
-            if ($(clickArray[i]).children().length > 1) {
-              // console.log($(clickArray[i]).parents(".item-container").attr('id'))
-              let crrName = $($(".item-container").toArray()[i])
-                .find(".item-name")
-                .text();
-
-              let cartList = $("#item-cart ul li").filter(function () {
-                return $(this).find(".item-cart-name").text() === crrName;
-              });
-
-              if (cartList.find(".qauntity").text() === "0x") {
-                cartList.empty().remove();
-              }
-
-              cartBtn.attr("value", crrName);
-              $(clickArray[i]).empty().append(cartBtn);
-              $(clickArray[i]).css('background-color', 'hsl(20, 50%, 98%)')
-              break;
-            }
-          } //end of 4 loop
-
-          let incrementBtn = $("<button>+</button>");
-          incrementBtn.attr("id", "increment");
-          incrementBtn.addClass("add-subract");
-
-          let decrementBtn = $("<button>-</button>");
-          decrementBtn.attr("id", "decrement");
-          decrementBtn.addClass("add-subract");
-
-          let countValue = $("<span></span>");
-          countValue.addClass("count-value");
-
-          currentItem
-            .find(".click-section")
-            .empty()
-            .append(decrementBtn, countValue, incrementBtn);
-
-            currentItem.find(".click-section").css('background-color', 'hsl(14, 86%, 42%)')
-
-          $(".add-subract").click(function () {
-            incrementDecrement($(this).attr("id"), currentItem);
-          });
-
-          let listArray = $("#item-cart ul li div h3")
-            .toArray()
-            .map((textItem) => $(textItem).text());
-
-          if (!listArray.includes(currentItem.attr('id'))) {
-            createCartItems(currentItem);
-          }
-
-          //getting the list item in the cart item menu
-          let crrItem = $("#item-cart ul li").filter(function () {
-            return $(this).find("h3").text() === crrValue;
-          }); //end of filter func
-
-          //changin qauntity
-          let num = Number(crrItem.find(".qauntity").text().split("x")[0]);
-          ++num;
-          countValue.text(`${num}`);
-
-          if (crrItem.length === 0) {
-            console.log("this item deos not exist..!");
-          }
-
-          crrItem.find(".qauntity").text(`${num}x`);
-
-          //changin total price
-          let overRollPrice = Number($("#amount").text().split("$")[1]);
-
-          let prices = Number(crrItem.find(".item-total").text().split("$")[1]);
-          prices += Number(crrItem.find(".item-cart-price").text().split("$")[1]);
-          overRollPrice += Number(crrItem.find(".item-cart-price").text().split("$")[1])
-          let finalPrice =
-            prices.toString().split(".").length === 1
-              ? prices + ".00"
-              : prices + "0";
-          overRollFormat =
-            overRollPrice.toString().split(".").length === 1
-              ? overRollPrice + ".00"
-              : overRollPrice + "0";
-          $("#amount").text("$" + overRollFormat);
-          crrItem.find(".item-total").text("$" + finalPrice);
-
-          //changing cart qauntity
-          let cartCount = Number($("#item-cart h1 span").text());
-          $("#item-cart h1 span").text(`${++cartCount}`);
+          cartButton($(this).attr("value"))
         }); //end of cartBtn click fun
 
         clickSection.append(cartBtn);
